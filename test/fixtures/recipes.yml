@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Apple cake
+  preparation: just bake it
+  image: https://molotnikov.de/cake.jpg
+  user: one
+
+two:
+  name: Pflaumen Cake
+  preparation: Read and do
+  image: https://molotnikov.de/cake2.jpg
+  user: two

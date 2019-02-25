@@ -1,0 +1,12 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: John Smith
+  uid: john@smith.com
+  provider: email
+  
+two:
+  name: Bla Bla Sarah
+  uid: sarah@yahoo.com
+  provider: email
+
