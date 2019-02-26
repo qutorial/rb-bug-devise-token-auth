@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Powder
+  quantity: 1.5
+  unit: kg
+  recipe: one
+#  group: one
+
+two:
+  name: Eggs
+  quantity: 4
+  unit: pcs
+  recipe: one
+#  group: two

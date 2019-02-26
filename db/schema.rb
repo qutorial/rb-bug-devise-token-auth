@@ -10,13 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190224181358) do
+ActiveRecord::Schema.define(version: 20190226104526) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.bigint "recipe_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id"], name: "index_groups_on_recipe_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.float "quantity"
+    t.string "unit"
+    t.bigint "recipe_id"
+    t.bigint "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_ingredients_on_group_id"
+    t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.text "preparation"
     t.string "image"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
@@ -52,4 +75,8 @@ ActiveRecord::Schema.define(version: 20190224181358) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "groups", "recipes"
+  add_foreign_key "ingredients", "groups"
+  add_foreign_key "ingredients", "recipes"
+  add_foreign_key "recipes", "users"
 end
