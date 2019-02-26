@@ -1,5 +1,6 @@
 class Ingredient < ApplicationRecord
   belongs_to :recipe
+  belongs_to :group, optional: true
 
   def group
     if self.group_id.nil?

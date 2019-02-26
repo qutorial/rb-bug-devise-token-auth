@@ -9,12 +9,12 @@
 
 u = User.create(email: 'user@example.com', nickname: 'UOne', name: 'User One', password: "monkey67")
 
-r = Recipe.create(name: "Apple cake", user: u, preparation: "Do it like this", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_pie.jpg/450px-Apple_pie.jpg")
-Recipe.create(name: "Cheese cake", user: u, preparation: "Do it like this")
-Recipe.create(name: "Chocolate cake", user: u, preparation: "Do it like this")
-Recipe.create(name: "Welle Torte", user: u, preparation: "Do it like this")
-Recipe.create(name: "Blah bloh", user: u, preparation: "Do it like this")
-Recipe.create(name: "Snickers", user: u, preparation: "Do it like this")
+r = Recipe.create(name: "Apple cake", user: u, preparation: "Do it like this", multiplier: 2, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_pie.jpg/450px-Apple_pie.jpg")
+Recipe.create(name: "Cheese cake", user: u, preparation: "Do it like this", multiplier: 1)
+Recipe.create(name: "Chocolate cake", user: u, preparation: "Do it like this", multiplier: 1)
+Recipe.create(name: "Welle Torte", user: u, preparation: "Do it like this", multiplier: 1)
+Recipe.create(name: "Blah bloh", user: u, preparation: "Do it like this", multiplier: 1)
+Recipe.create(name: "Snickers", user: u, preparation: "Do it like this", multiplier: 1)
 
 g1 = Group.create(name: "Dough", recipe: r)
 g2 = Group.create(name: "Filling", recipe: r)
