@@ -9,7 +9,7 @@
 
 u = User.create(email: 'user@example.com', nickname: 'UOne', name: 'User One', password: "monkey67")
 
-r = Recipe.create(name: "Apple cake", user: u, preparation: "Do it like this", multiplier: 2, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_pie.jpg/450px-Apple_pie.jpg")
+r = Recipe.create(name: "Apple cake", user: u, preparation: "Take Dough:Flour and mix it slowly with Dough:Water. Add Dough:Eggs one by one. Then bake Filling:Apples in :Butter and add them to the dough.", multiplier: 2, image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Apple_pie.jpg/450px-Apple_pie.jpg")
 Recipe.create(name: "Cheese cake", user: u, preparation: "Do it like this", multiplier: 1)
 Recipe.create(name: "Chocolate cake", user: u, preparation: "Do it like this", multiplier: 1)
 Recipe.create(name: "Welle Torte", user: u, preparation: "Do it like this", multiplier: 1)
@@ -19,7 +19,8 @@ Recipe.create(name: "Snickers", user: u, preparation: "Do it like this", multipl
 g1 = Group.create(name: "Dough", recipe: r)
 g2 = Group.create(name: "Filling", recipe: r)
 
-Ingredient.create(name: "Flour", quantity: 2, unit: "kg", recipe: r, group: g1)
-Ingredient.create(name: "Eggs", quantity: 2, unit: "pcs", recipe: r, group: g1)
-Ingredient.create(name: "Apples", quantity: 3, unit: "pcs", recipe: r, group: g2)
-Ingredient.create(name: "Butter", quantity: 100, unit: "g", recipe: r)
+Ingredient.create(name: "Flour", quantity: 2, unit: "kg", recipe: r, group: g1, order: 1)
+Ingredient.create(name: "Eggs", quantity: 2, unit: "pcs", recipe: r, group: g1, order: 2)
+Ingredient.create(name: "Water", quantity: 500, unit: "ml", recipe: r, group: g1, order: 3)
+Ingredient.create(name: "Apples", quantity: 3, unit: "pcs", recipe: r, group: g2, order: 4)
+Ingredient.create(name: "Butter", quantity: 100, unit: "g", recipe: r, order: 5)
