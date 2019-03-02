@@ -1,0 +1,5 @@
+development: &default
+  images_folder: "images"
+
+production:
+  <<: *default

@@ -15,7 +15,8 @@ class RecipesController < ApplicationController
   def show
     groups = @recipe.groups
     ingredients = @recipe.ingredients
-    render json: {"recipe": @recipe, "groups": groups, "ingredients": ingredients}
+    images = @recipe.images
+    render json: {"recipe": @recipe, "groups": groups, "ingredients": ingredients, "images": images}
   end
 
   # POST /recipes
@@ -124,7 +125,7 @@ class RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.permit(:name, :preparation, :image, :multiplier)
+      params.permit(:name, :preparation, :multiplier)
     end
 
     def groups_params

@@ -28,9 +28,6 @@ gem 'devise_token_auth'
 gem 'omniauth'
 gem 'rack-cors', :require => 'rack/cors'
 
-# URL validation
-gem 'valid_url'
-
 gem 'pg'
 
 group :development, :test do
