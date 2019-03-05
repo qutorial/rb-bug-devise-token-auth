@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
-  before_action :set_image, only: [:show, :destroy]
   before_action :authenticate_user!
+  before_action :set_image, only: [:show, :destroy]
   before_action :set_recipe, only: [:create, :index]
   before_action :check_recipe, only: [:create, :index]
 
@@ -53,6 +53,10 @@ class ImagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
+      if @image.recipe.user != current_user
+        render json: {}, status: :unauthorized
+        @image = nil
+      end
     end
 
     # Only allow a trusted parameter "white list" through.
@@ -70,7 +74,8 @@ class ImagesController < ApplicationController
 
     def check_recipe
       if @recipe.user != current_user
-      	render json: {}, status: :unauthorized
+        render json: {}, status: :unauthorized
+        @recipe = nil
       end
     end
 
