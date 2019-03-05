@@ -1,0 +1,6 @@
+development:
+  allowed-origins:
+    - "*"
+production:
+  allowed-origins:
+    - "https://recipebook.leckeretorten.com"

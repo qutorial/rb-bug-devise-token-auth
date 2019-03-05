@@ -31,5 +31,6 @@ module RbBackend
     config.api_only = true
 
     config.images = config_for(:images)
+    config.cors = config_for(:cors)
   end
 end

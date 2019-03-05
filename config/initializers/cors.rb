@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*' # domain name here
+    origins Rails.configuration.cors["allowed-origins"] # domain name here
 
     resource '*',
       headers: :any,
